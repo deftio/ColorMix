@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<!-- M A Chatterje (c) 2024 -->
 <head>
   <meta charset="UTF-8">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -21,7 +21,7 @@
     }
 
     .color-box {
-      width: 40vw;
+      width: 35vw;
       height: 40vh;
       border: 1px solid #000;
     }
@@ -29,7 +29,56 @@
     .slider-container {
       text-align: left;
     }
+    label {
+      width: 15%;
+    }
+    input {
+      width: 50%;
+      left : 0;
+    }
   </style>
+ 
+</head>
+
+<body>
+  <div class="container">
+    <h1>Color Mixing Demo</h1>
+  </div>
+  <div class="container">
+    <div>
+      <h2>Additive Colors (RGB)</h2>
+      Light sources (like the sun or lightbulbs) are additively mixed to create color.
+      <br><br>
+      <div class="color-box" id="additive-color"></div>
+      <br>
+
+      <div id="additive-value">rgb(0,0,0)</div>
+      <br>
+
+      <div class="slider-container">
+        <label>Red: </label><input type="range" id="r-slider" min="0" max="255" value="10" oninput="updateAdditiveColor()"><br>
+        <label>Green: </label><input type="range" id="g-slider" min="0" max="255" value="30" oninput="updateAdditiveColor()"><br>
+        <label>Blue: </label><input type="range" id="b-slider" min="0" max="255" value="50" oninput="updateAdditiveColor()">
+        
+      </div>
+    </div>
+    <div>
+      <h2>Subtractive Colors (CMY)</h2>
+      Light reflectors/absorbers, paints, are subtractively mixed to create color.
+      <br><br>
+      <div class="color-box" id="subtractive-color" style="background-color: #ffffff;"></div>
+      <br>
+
+      <div id="subtractive-value">rgb(255,255,255)</div>
+      <br>
+      <div class="slider-container">
+        <label>Cyan: </label><input type="range" id="c-slider" min="0" max="255" value="10" oninput="updateSubtractiveColor()"><br>
+        <label>Magenta: </label><input type="range" id="m-slider" min="0" max="255" value="30"
+            oninput="updateSubtractiveColor()"><br>
+        <label>Yellow: </label><input type="range" id="y-slider" min="0" max="255" value="50"oninput="updateSubtractiveColor()">
+      </div>
+    </div>
+  </div>
   <script>
     function updateAdditiveColor() {
       var r = document.getElementById("r-slider").value;
@@ -52,47 +101,9 @@
       document.getElementById("subtractive-color").style.backgroundColor = color;
       document.getElementById("subtractive-value").innerText = color;
     }
+    updateAdditiveColor();
+    updateSubtractiveColor();
   </script>
-</head>
-
-<body>
-  <div class="container">
-    <h1>Color Mixing Demo</h1>
-  </div>
-  <div class="container">
-    <div>
-      <h2>Additive Colors (RGB)</h2>
-      Light sources (like the sun or lightbulbs) are additively mixed to create color.
-      <br><br>
-      <div class="color-box" id="additive-color"></div>
-      <br>
-
-      <div id="additive-value">rgb(0,0,0)</div>
-      <br>
-
-      <div class="slider-container">
-        <label>Red: <input type="range" id="r-slider" min="0" max="255" oninput="updateAdditiveColor()"></label><br>
-        <label>Green: <input type="range" id="g-slider" min="0" max="255" oninput="updateAdditiveColor()"></label><br>
-        <label>Blue: <input type="range" id="b-slider" min="0" max="255" oninput="updateAdditiveColor()"></label>
-      </div>
-    </div>
-    <div>
-      <h2>Subtractive Colors (CMY)</h2>
-      Light reflectors/absorbers, paints, are subtractively mixed to create color.
-      <br><br>
-      <div class="color-box" id="subtractive-color" style="background-color: #ffffff;"></div>
-      <br>
-
-      <div id="subtractive-value">rgb(255,255,255)</div>
-      <br>
-      <div class="slider-container">
-        <label>Cyan: <input type="range" id="c-slider" min="0" max="255" oninput="updateSubtractiveColor()"></label><br>
-        <label>Magenta: <input type="range" id="m-slider" min="0" max="255"
-            oninput="updateSubtractiveColor()"></label><br>
-        <label>Yellow: <input type="range" id="y-slider" min="0" max="255" oninput="updateSubtractiveColor()"></label>
-      </div>
-    </div>
-  </div>
 </body>
 
 </html>
