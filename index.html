@@ -23,7 +23,7 @@
     .color-box {
       width: 35vw;
       height: 40vh;
-      border: 1px solid #000;
+      /* border: 1px solid #000; */
     }
 
     .slider-container {
@@ -36,6 +36,38 @@
       width: 50%;
       left : 0;
     }
+    .red {
+      color: red;
+    }
+    .blue {
+      color: blue;
+    }
+    .green {
+      color: green;
+    }
+    .cyan {
+      color: cyan;
+    }
+    .magenta {
+      color: magenta;
+    }
+    .yellow {
+      color: yellow
+    }
+    .cyan, .magenta, .yellow {
+      background-color: #bbb;
+      font-weight: 600;
+      padding : 5px;
+      border-radius: 4px;
+    }
+    label {
+      margin: 4px;
+      padding: 5px;
+      border-radius: 4px;
+      background-color: #bbb !important;
+      font-weight : 600;
+      font-size: 1.2em;
+    }
   </style>
  
 </head>
@@ -47,7 +79,8 @@
   <div class="container">
     <div>
       <h2>Additive Colors (RGB)</h2>
-      Light sources (like the sun or lightbulbs) are additively mixed to create color.
+      Light sources (like the sun or lightbulbs) are additively mixed to create color.<br>
+      The primary additive colors are <span class="red">red</span>, <span class="green">green</span>, and <span class="blue">blue</span>.
       <br><br>
       <div class="color-box" id="additive-color"></div>
       <br>
@@ -56,15 +89,16 @@
       <br>
 
       <div class="slider-container">
-        <label>Red: </label><input type="range" id="r-slider" min="0" max="255" value="10" oninput="updateAdditiveColor()"><br>
-        <label>Green: </label><input type="range" id="g-slider" min="0" max="255" value="30" oninput="updateAdditiveColor()"><br>
-        <label>Blue: </label><input type="range" id="b-slider" min="0" max="255" value="50" oninput="updateAdditiveColor()">
+        <label class="red">Red: </label><input type="range" id="r-slider" min="0" max="255" value="10" oninput="updateAdditiveColor()"><br>
+        <label class="green">Green: </label><input type="range" id="g-slider" min="0" max="255" value="30" oninput="updateAdditiveColor()"><br>
+        <label class="blue">Blue: </label><input type="range" id="b-slider" min="0" max="255" value="50" oninput="updateAdditiveColor()">
         
       </div>
     </div>
     <div>
       <h2>Subtractive Colors (CMY)</h2>
-      Light reflectors and absorbers, such as paints, are subtractively mixed to create color.
+      Light reflectors and absorbers, such as paints, are subtractively mixed to create color.<br>
+      The primary subtractive colors are <span class="cyan">cyan</span>, <span class="magenta">magenta</span>, and <span class="yellow">yellow</span>.
       <br><br>
       <div class="color-box" id="subtractive-color" style="background-color: #ffffff;"></div>
       <br>
@@ -72,10 +106,10 @@
       <div id="subtractive-value">rgb(255,255,255)</div>
       <br>
       <div class="slider-container">
-        <label>Cyan: </label><input type="range" id="c-slider" min="0" max="255" value="10" oninput="updateSubtractiveColor()"><br>
-        <label>Magenta: </label><input type="range" id="m-slider" min="0" max="255" value="30"
+        <label class="cyan">Cyan: </label><input type="range" id="c-slider" min="0" max="255" value="10" oninput="updateSubtractiveColor()"><br>
+        <label class="magenta">Magenta: </label><input type="range" id="m-slider" min="0" max="255" value="30"
             oninput="updateSubtractiveColor()"><br>
-        <label>Yellow: </label><input type="range" id="y-slider" min="0" max="255" value="50"oninput="updateSubtractiveColor()">
+        <label class="yellow">Yellow: </label><input type="range" id="y-slider" min="0" max="255" value="50"oninput="updateSubtractiveColor()">
       </div>
     </div>
   </div>
@@ -84,22 +118,29 @@
       var r = document.getElementById("r-slider").value;
       var g = document.getElementById("g-slider").value;
       var b = document.getElementById("b-slider").value;
-      var color = "rgb(" + r + "," + g + "," + b + ")";
+      var color = "RGB("+r+","+g+","+b+")" ;
+      // Convert CMY to RGB
+      var c = 255 - r;
+      var m = 255 - g;
+      var y = 255 - b;
+      var display = color + " is equal to CMY("+c+","+m+","+y+")";
       document.getElementById("additive-color").style.backgroundColor = color;
-      document.getElementById("additive-value").innerText = color;
+      document.getElementById("additive-value").innerText = display;
     }
 
     function updateSubtractiveColor() {
       var c = document.getElementById("c-slider").value;
       var m = document.getElementById("m-slider").value;
       var y = document.getElementById("y-slider").value;
+     
       // Convert CMY to RGB
       var r = 255 - c;
       var g = 255 - m;
       var b = 255 - y;
-      var color = "rgb(" + r + "," + g + "," + b + ")";
+      var color = "RGB("+r+","+g+","+b+")";
+      var display = "CMY("+c+","+m+","+y+") is equal to " + color;
       document.getElementById("subtractive-color").style.backgroundColor = color;
-      document.getElementById("subtractive-value").innerText = color;
+      document.getElementById("subtractive-value").innerText = display;
     }
     updateAdditiveColor();
     updateSubtractiveColor();
