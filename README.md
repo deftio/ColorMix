@@ -2,13 +2,13 @@
 
 A simple html color mixer for exploring RGB (additive light) vs CMY (subtrative light) colors written in pure HTML.
 
-If you download this repo can you view the files in this repo in your browser locally as well.
+If you download this [repo](https://github.com/deftio/ColorMix) can you view the files in this repo in your browser locally as well.
 
 ## Online Demos here:
 
-[RGB and CMY Colors](https://deftio.github.io/ColorMix/index.html) - a quick demo with sliders allowing you to see different colors
+[RGB and CMY Colors](https://deftio.github.io/ColorMix/colors.html) - a quick demo with sliders allowing you to see different colors
 
-[Additive Colors](https://deftio.github.io/ColorMix/additive.html) - a quick demo on mixing RGB colors
+[Additive Colors](https://deftio.github.io/ColorMix/additive.html ) - a quick demo on mixing RGB colors
 
 [Subtrative Colors](https://deftio.github.com/ColorMix/subatractive.html) - quick demo on mixing CMY colors.
 
@@ -42,9 +42,9 @@ Mixing cyan and yellow results in green.
 Joining yellow and magenta creates red.
 Mixing all three subtractive colors ideally absorbs all light, resulting in black, though in practice, it often results in a dark brown or gray due to impurities in the colors.
 
-Overview
-To summarize:
+### Last Thoughts
 
 Additive color mixing involves combining colored light, where adding more colors brings the result closer to white.
 Subtractive color mixing involves combining pigments, where adding more colors leads to less light being reflected, moving the result closer to black.
 These processes allow for the reproduction of a wide spectrum of colors in various media, from art to industrial applications.
+
