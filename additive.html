@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <title>Color Mixing Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        #colorMixing {
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        #additiveMixHeading {
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .color-box {
+            width: 30%;
+            /* Adjusted the width to accommodate three boxes */
+            height: 30vh;
+            text-align: center;
+        }
+
+        .slider-container {
+            text-align: left;
+            width: 30%;
+            /* Ensure sliders are aligned with the color boxes */
+        }
+
+        label {
+            margin: 4px;
+            padding: 5px;
+            border-radius: 4px;
+            background-color: #bbb !important;
+            font-weight: 600;
+            font-size: 1.2em;
+            min-width: 5em;
+        }
+
+        input {
+            width: 50%;
+        }
+
+        .explainText {
+            padding: 10px;
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        .red {
+            color: red;
+        }
+
+        .blue {
+            color: blue;
+        }
+
+        .green {
+            color: green;
+        }
+
+        .cyan {
+            color: cyan;
+        }
+
+        .magenta {
+            color: magenta;
+        }
+
+        .yellow {
+            color: yellow
+        }
+
+        .cyan,
+        .magenta,
+        .yellow {
+            background-color: #bbb;
+            font-weight: 600;
+            padding: 5px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!---<h1>Color Mixing Demo</h1> -->
+    </div>
+    <!-- Existing sections for Additive and Subtractive Colors here -->
+
+    <div class="container">
+        <div id="colorMixing">
+            <h2 id="additiveMixHeading">Color Mixing (Two Additive Colors)</h2>
+            <div class="explainText">
+                Select two different colors using RGB sliders and see how they mix.
+            </div>
+            <div style="display: flex; justify-content: space-around; width: 100%;">
+                <div class="color-box">
+                    <h3>Color 1</h3>
+                    <div id="color1" style="width:100%;height:100%;"></div>
+                </div>
+                <div class="color-box">
+                    <h3>Mixed </h3>
+                    <div id="mixed-color" style="width:100%;height:100%;"></div>
+                </div>
+                <div class="color-box">
+                    <h3>Color 2</h3>
+                    <div id="color2" style="width:100%;height:100%;"></div>
+                </div>
+            </div>
+            <br><br>
+
+            <div style="display: flex; justify-content: space-around; width: 100%; margin-top: 10px;">
+                <div class="slider-container">
+                    <label class="red">Red 1:</label>
+                    <input type="range" id="r1-slider" min="0" max="255" value="50" oninput="updateMixedColor()">
+                    <label class="green">Green 1:</label>
+                    <input type="range" id="g1-slider" min="0" max="255" value="115" oninput="updateMixedColor()">
+                    <label class="blue">Blue 1:</label>
+                    <input type="range" id="b1-slider" min="0" max="255" value="220" oninput="updateMixedColor()">
+                </div>
+                <div class="slider-container">
+                </div>
+                <div class="slider-container">
+                    <label class="red">Red 2:</label>
+                    <input type="range" id="r2-slider" min="0" max="255" value="220" oninput="updateMixedColor()">
+                    <label class="green">Green 2:</label>
+                    <input type="range" id="g2-slider" min="0" max="255" value="160" oninput="updateMixedColor()">
+                    <label class="blue">Blue 2:</label>
+                    <input type="range" id="b2-slider" min="0" max="255" value="70" oninput="updateMixedColor()">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function updateMixedColor() {
+            var r1 = parseInt(document.getElementById("r1-slider").value);
+            var g1 = parseInt(document.getElementById("g1-slider").value);
+            var b1 = parseInt(document.getElementById("b1-slider").value);
+            var r2 = parseInt(document.getElementById("r2-slider").value);
+            var g2 = parseInt(document.getElementById("g2-slider").value);
+            var b2 = parseInt(document.getElementById("b2-slider").value);
+            var mixedR = (r1 + r2 /2);
+            var mixedG = (g1 + g2 /2);
+            var mixedB = (b1 + b2 /2);
+            document.getElementById("color1").style.backgroundColor = `rgb(${r1},${g1},${b1})`;
+            document.getElementById("color2").style.backgroundColor = `rgb(${r2},${g2},${b2})`;
+            document.getElementById("mixed-color").style.backgroundColor = `rgb(${mixedR},${mixedG},${mixedB})`;
+        }
+        updateMixedColor(); // Initialize colors on page load
+    </script>
+</body>
+
+</html>
