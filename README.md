@@ -10,7 +10,7 @@ If you download this [repo](https://github.com/deftio/ColorMix) can you view the
 
 [Additive Colors](https://deftio.github.io/ColorMix/additive.html ) - a quick demo on mixing RGB colors
 
-[Subtrative Colors](https://deftio.github.com/ColorMix/subatractive.html) - quick demo on mixing CMY colors.
+[Subtractive Colors](https://deftio.github.com/ColorMix/subtractive.html) - quick demo on mixing CMY colors.
 
 ## About Additive and Subtractive Light and Colors
 Color perception begins with light, which can be thought of as composed of various colors. When light strikes an object, some colors are absorbed and others are reflected or transmitted. The specific colors that are reflected or transmitted determine the color of the object as perceived by a viewer.
