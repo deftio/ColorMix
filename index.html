@@ -21,7 +21,7 @@
     }
 
     .color-box {
-      width: 35vw;
+      width: 100%;
       height: 40vh;
       /* border: 1px solid #000; */
     }
@@ -67,6 +67,16 @@
       background-color: #bbb !important;
       font-weight : 600;
       font-size: 1.2em;
+      min-width: 5em;
+    }
+    input {
+      width: 50%;
+    }
+    #additiveColors, #subtractiveColors{
+      width: 100%;
+    }
+    .explainText {
+      height: 15vh;
     }
   </style>
  
@@ -77,11 +87,13 @@
     <h1>Color Mixing Demo</h1>
   </div>
   <div class="container">
-    <div>
+    <div id="additiveColors">
       <h2>Additive Colors (RGB)</h2>
+    <div class="explainText">
       Light sources (like the sun or lightbulbs) are additively mixed to create color.<br>
       The primary additive colors are <span class="red">red</span>, <span class="green">green</span>, and <span class="blue">blue</span>.
-      <br><br>
+    </div>
+      <br>
       <div class="color-box" id="additive-color"></div>
       <br>
 
@@ -95,14 +107,13 @@
         
       </div>
     </div>
-    <div>
-      <h2>Subtractive Colors (CMY)</h2>
+    <div id="subtractiveColors">
+      <h2>Subtractive Colors (CMY)</h2>    <div class="explainText">
       Light reflectors and absorbers, such as paints, are subtractively mixed to create color.<br>
       The primary subtractive colors are <span class="cyan">cyan</span>, <span class="magenta">magenta</span>, and <span class="yellow">yellow</span>.
-      <br><br>
+      </div><br>
       <div class="color-box" id="subtractive-color" style="background-color: #ffffff;"></div>
       <br>
-
       <div id="subtractive-value">rgb(255,255,255)</div>
       <br>
       <div class="slider-container">
